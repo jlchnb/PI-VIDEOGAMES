@@ -11,8 +11,8 @@ function validate(input) {
         errors.name = 'Name is required' 
     } else if (!input.rating || input.rating<0 || input.rating >5) {
         errors.rating = 'Rating must be a nummber between 0-5'
-    } else if (input.platform.length===0) {
-        errors.platform = 'Platform is required'
+    } else if (input.platforms.length===0) {
+        errors.platforms = 'Platform is required'
     }
     return errors 
 }
@@ -24,9 +24,9 @@ export default function AddVideogame() {
     const [input,setInput] = useState({
         name: '',
         description: '',
-        reldate: '',
+        releaseDate: '',
         rating:'',
-        platform: [],
+        platforms: [],
         genre: []
     })
     const [errors,setErrors] =  useState({})
@@ -48,7 +48,7 @@ export default function AddVideogame() {
          console.log('Platform: ',e.target.value)
         setInput({
           ...input,
-          platform: [...input.platform,e.target.value]
+          platforms: [...input.platforms,e.target.value]
         })
      } 
 
@@ -62,23 +62,23 @@ export default function AddVideogame() {
       function  handleSubmit(e) {
          e.preventDefault()
          if (!input.name) {return alert('Name is required')}
-         if (!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(input.reldate)) 
+         if (!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(input.releaseDate)) 
             {return alert('Wrong released date format. Should be YYYY-MM-DD OR YYYY-M-D')}
          if (!input.rating) {return alert('Rating is required')}
          if (!/^(?:[1-9]\d{0,2}(?:,\d{3})*|0)(?:\.\d+)?$/.test(input.rating) || 
             input.rating <0 || input.rating >5) 
             {return alert('Wrong format for Rating. Should be a number between 0-5')
          }
-         if (input.platform.length===0) {return alert('Platform is required')}
+         if (input.platforms.length===0) {return alert('Platform is required')}
          dispatch(postvgame(input))
          dispatch(getvgames())
          alert(`Videogame ${input.name} has been added`)
          setInput({
             name: '',
             description: '',
-            reldate: '',
+            releaseDate: '',
             rating:0,
-            platform: [],
+            platforms: [],
             genre: []
          })
          history.push('/home')
@@ -101,7 +101,7 @@ export default function AddVideogame() {
                     {errors.name && ( <p className={stl.error}> {errors.name} </p> )}
 
                     <label>Released date:</label>
-                    <input onChange={handleOnChange} type='text' name='reldate' value={input.reldate} 
+                    <input onChange={handleOnChange} type='text' name='releaseDate' value={input.releaseDate} 
                              placeholder='YYYY-MM-DD'/>
 
                     <label>Rating:</label>
@@ -115,8 +115,8 @@ export default function AddVideogame() {
                            return  <option value={p}>{p}</option>
                         })}
                     </select>
-                    <ul  className='ul'><li>{input.platform.map(p => p + ' ,')}</li></ul>
-                    {errors.platform && ( <p className={stl.error}> {errors.platform} </p> )}
+                    <ul  className='ul'><li>{input.platforms.map(p => p + ' ,')}</li></ul>
+                    {errors.platforms && ( <p className={stl.error}> {errors.platforms} </p> )}
 
                     <label>Genres:</label>
                     <select onChange={handleGenres}>

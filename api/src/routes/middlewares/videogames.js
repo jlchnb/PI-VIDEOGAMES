@@ -90,7 +90,7 @@ router.get('/', async (req, res) => {
       if (!isNaN(id)){
     //Search videogame in the Api
          var idkey = parseInt(id)
-         const result = await axios.get(`https://api.rawg.io/api/games/${idkey}?key=${apikey}`)
+         const result = await axios.get(`https://api.rawg.io/api/games/${idkey}?key=${API_KEY}`)
          if (result.data.id) {
             let genrestr=[]
             for (i=0;i<result.data.genres.length;i++) {
@@ -130,8 +130,8 @@ router.get('/', async (req, res) => {
          }
          const objdbgame = {
             name: searchdbvg.name,
-            platforms: searchdbvg.platform, //platform
-            released: searchdbvg.reldate, //reldate
+            platforms: searchdbvg.platforms, //platform
+            released: searchdbvg.releaseDate, //reldate
             image: "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
             description: searchdbvg.description,
             rating: searchdbvg.rating,
@@ -146,29 +146,29 @@ router.get('/', async (req, res) => {
   });
 
 //Delete a videogame 
-  router.post('/delete/:name', async (req, res) => {
-  const { name } = req.params;
-  console.log('Delete de: ', name)
-  try {
-   const elem = await Videogame.destroy({
-      where: {name: `${name}`}
-   });
-  } catch (error) {
-      res.send(`Error in route /videogames/delete ${error}`);
-  }
-  res.send('Videogame has been deleted');
-});
+//   router.post('/delete/:name', async (req, res) => {
+//   const { name } = req.params;
+//   console.log('Delete de: ', name)
+//   try {
+//    const elem = await Videogame.destroy({
+//       where: {name: `${name}`}
+//    });
+//   } catch (error) {
+//       res.send(`Error in route /videogames/delete ${error}`);
+//   }
+//   res.send('Videogame has been deleted');
+// });
 
 //Add a videogame to the database
   router.post('/', async (req, res) => {  
-     let { name, description, reldate, rating, platform, genre} = req.body;
-     platform = platform.toString();
+     let { name, description, releaseDate, rating, platforms, genre} = req.body;
+     platforms = platforms.toString();
      const addVgame = await Videogame.create({
         name,
         description,
-        reldate,
+        releaseDate,
         rating, 
-        platform
+        platforms
      })
 
 //Find videogame genres from Genres table       

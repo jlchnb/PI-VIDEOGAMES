@@ -63,7 +63,7 @@ export default function HomePage () {
                 <div>                    
                   <select className={stl.hpfilter} onChange={e => handleGenreFilter(e)}>
                     {allgenres.sort().map(e => {
-                         return <option value={e}>{e}</option>
+                         return <option key={e.id} value={e}>{e}</option>
                     })}      
                   </select>
                 </div>
@@ -92,7 +92,7 @@ export default function HomePage () {
                     return (
                         <>
                           <Link to ={"/videogame/" + p.id}>
-                             <Vgcard name= {p.name} image= {p.image} genres= {p.genres} key={p.id} rating={p.rating}/>
+                             <Vgcard key={p.id} name= {p.name} image= {p.image} genres= {p.genres} key={p.id} rating={p.rating}/>
                           </Link>
                         </>  
                    )})                

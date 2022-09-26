@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
     rating:{
       type: DataTypes.DECIMAL
     },
-    plataforms:{
+    platforms:{
       type: DataTypes.STRING,
       allowNull: false
     }
