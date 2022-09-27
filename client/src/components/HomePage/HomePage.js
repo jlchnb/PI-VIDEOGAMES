@@ -92,7 +92,7 @@ export default function HomePage () {
                     return (
                         <>
                           <Link to ={"/videogame/" + p.id}>
-                             <Vgcard key={p.id} name= {p.name} image= {p.image} genres= {p.genres} key={p.id} rating={p.rating}/>
+                             <Vgcard key={p.id} name= {p.name} image= {p.image} genres= {p.genres} rating={p.rating}/>
                           </Link>
                         </>  
                    )})                

@@ -34,5 +34,5 @@ export default function LandingPage() {
           <button className={stl.but} onClick={handleSortvgames}>START App</button>
           </Link>
        </div>
-    )   
+   )  
 }
