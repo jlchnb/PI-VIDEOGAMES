@@ -61,11 +61,7 @@ export default function rootReducer(state = initialState, action){
         case  POST_VGAME:
             return {
                 ...state
-            }   
-        case  DELETE_VGAME:
-             return {
-                ...state
-             }       
+            }        
         case VIDEOGAMES_ORIGIN:
              const originVg = state.vgfilter
              const originfilter = action.payload === 'DB' ? originVg.filter(p => p.origin === 'DB') : originVg.filter(p => p.origin === 'API')
