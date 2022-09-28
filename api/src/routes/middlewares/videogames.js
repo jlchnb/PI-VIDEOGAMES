@@ -145,20 +145,6 @@ router.get('/', async (req, res) => {
     }
   });
 
-//Delete a videogame 
-//   router.post('/delete/:name', async (req, res) => {
-//   const { name } = req.params;
-//   console.log('Delete de: ', name)
-//   try {
-//    const elem = await Videogame.destroy({
-//       where: {name: `${name}`}
-//    });
-//   } catch (error) {
-//       res.send(`Error in route /videogames/delete ${error}`);
-//   }
-//   res.send('Videogame has been deleted');
-// });
-
 //Add a videogame to the database
   router.post('/', async (req, res) => {  
      let { name, description, releaseDate, rating, platforms, genre} = req.body;

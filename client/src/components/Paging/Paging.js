@@ -20,7 +20,7 @@ export default function Paging({vgamesPerPage, allVgames, currpage, actualPage})
                     </li>
                     )
                 })}
-                <span>{`   Actual Page  ${currpage}`}</span>
+                <span className={stl.text}><font color="white">{`   Actual Page  ${currpage}`}</font></span>
             </ul>           
         </nav>        
     )

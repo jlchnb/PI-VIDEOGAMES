@@ -87,7 +87,7 @@ export default function HomePage () {
             <div className={stl.c4}>
                 <Paging vgamesPerPage={vgamesPerPage} allVgames={allVgames.length} currpage={currentPage} actualPage={actualPage}/>
             </div>
-            <div className={stl.c5}> {/*ACA NO MAPEO TODOS LOS VGAMES SINO SOLO LOS DE LA PAGINA ACTUAL del Slice */}
+            <div className={stl.c5}>
                 {currentVgames && currentVgames.map(p => {
                     return (
                         <>

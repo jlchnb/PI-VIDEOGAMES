@@ -41,7 +41,7 @@
 }
 
 .hpbot {
-  background-color:darkslategrey;
+  background-color:rgb(88, 0, 202);
   color: whitesmoke;
   padding-top: 1px;
   cursor: pointer;
@@ -52,8 +52,8 @@
   height: 60px;
 }
 .hpbot:hover {
-  background-color:olive;
-  color: black; 
+  background-color:rgb(16, 0, 88);
+  color: rgb(255, 255, 255); 
 }
 
 .hpfilter{

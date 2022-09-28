@@ -29,10 +29,12 @@ export default function LandingPage() {
   }
 
     return (
-       <div className={stl.lpcontainer}> 
-          < Link to = '/home'> 
-          <button className={stl.but} onClick={handleSortvgames}>START App</button>
+       <div className={stl.lpcontainer}>
+         <div>
+          <Link to = '/home'> 
+            <button className={stl.but} onClick={handleSortvgames}>Enter</button>
           </Link>
+         </div>
        </div>
    )  
 }
